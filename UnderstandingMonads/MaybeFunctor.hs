@@ -7,4 +7,6 @@
 -}
 module UnderstandingMonads.Functor.Maybe where 
 
-import Control.Functor
+ejF1 = fmap (+3) (Just 5)
+ejF2 = fmap (+3) Nothing
+ejF3 = fmap (++"a") (Just "hol")
