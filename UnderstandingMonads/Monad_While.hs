@@ -74,6 +74,14 @@ run (C c) = c --Just unwraps the function out of the data type
 -- Gives the state of the MS
 get :: MS s s
 get = C (\xs -> (xs,xs))
+<<<<<<< HEAD
+=======
+
+-- Puts a state into the MS
+put :: s -> MS s ()
+put xs = C (\_ -> ((),xs))
+
+>>>>>>> 22d447d3db28de310e085d6ea15f68421aef3963
 -- Fin de la definicion del State Monad (MS)
 
 {-
@@ -82,7 +90,10 @@ get = C (\xs -> (xs,xs))
 -}
 type While a = MS State a
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 22d447d3db28de310e085d6ea15f68421aef3963
 update :: Var -> Z -> While ()
 update x v = C (\s -> let s' y 
                             | x == y = v 
