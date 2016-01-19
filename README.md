@@ -13,6 +13,7 @@ UnderstandingMonads
       ├─  ListMonad.hs
       ├─  Monad_Stack.hs
       └─  Monad_While.hs
+```
 
 Para realizar este trabajo consultamos referencias como:
 
