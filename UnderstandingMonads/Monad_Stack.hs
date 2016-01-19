@@ -2,7 +2,7 @@
 
   Trabajo: Entendiendo Monads
 
-  Autoress: Pablo Andrés Martinez y Eduardo Garcia Ruiz
+  Autor: Pablo Andrés Martinez
 
 -}
 module UnderstandingMonads.Examples.Stack where
