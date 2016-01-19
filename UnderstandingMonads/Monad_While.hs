@@ -74,13 +74,6 @@ run (C c) = c --Just unwraps the function out of the data type
 -- Gives the state of the MS
 get :: MS s s
 get = C (\xs -> (xs,xs))
-
-update :: Var -> Z -> While ()
-update x v = C (\s -> let s' y 
-                            | x == y = v 
-                            | otherwise = s y 
-                      in ((),s'))
-
 -- Fin de la definicion del State Monad (MS)
 
 {-
@@ -88,6 +81,13 @@ update x v = C (\s -> let s' y
   ¡Qué Monada de While !
 -}
 type While a = MS State a
+
+
+update :: Var -> Z -> While ()
+update x v = C (\s -> let s' y 
+                            | x == y = v 
+                            | otherwise = s y 
+                      in ((),s'))
 
 aValW :: Aexp -> While Z
 aValW (N n) = C(\s -> (n,s))
@@ -132,7 +132,7 @@ runProgram ws s = s'
 -}
 
 sInit :: State
-sInit "x" =  10
+sInit "x" =  5000
 sInit _   =  0
 
 factorial = do assW "y" (N 1)
