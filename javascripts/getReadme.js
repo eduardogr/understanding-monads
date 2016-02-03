@@ -8,7 +8,7 @@ if (query) {
  
 // Load readme content
 $.ajax({
-    url: "https://rawgit.com/richjenks/teepee/"+branch+"/readme.md",
+    url: "https://github.com/EduardoGR/Understanding-Monads/"+branch+"/readme.md",
     dataType: 'text',
     success: function(data) {
  
