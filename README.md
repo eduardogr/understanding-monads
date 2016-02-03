@@ -3,21 +3,6 @@
 
 UnderstandingMonads contiene ejemplos de uso de Functor, Applicative, Monad y algunas implementaciones de Monad
 
-Estructura del repositorio
-=======================
-```
-UnderstandingMonads
-├── Functor
-|     └─  MaybeFunctor.hs
-├── Applicative
-|     ├─  MaybeApplicative.hs
-|     └─  ListApplicative.hs
-└── Monad
-      ├─  MaybeMonad.hs
-      ├─  ListMonad.hs
-      ├─  Monad_Stack.hs
-      └─  Monad_While.hs
-```
 Referencias
 ==========
 Para realizar este trabajo consultamos referencias como:
