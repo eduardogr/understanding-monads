@@ -3,9 +3,11 @@ module UnderstandingMonads.Applicative.Maybe where
 
 import Control.Applicative
 
--- Ejemplos <*>
-ej1 = Just (*) <*> Just 4 <*> Just 2
+ex1 = Just (*) <*> Just 4 <*> Just 2
+-- Expected output: Just 8
 
-ej2 = pure (*) <*> Just 4 <*> Just 2
+ex2 = pure (*) <*> Just 4 <*> Just 2
+-- Expected output: Just 8
 
-ej3 = (*) <$> Just 4 <*> Just 2
+ex3 = (*) <$> Just 4 <*> Just 2
+-- Expected output: Just 8
