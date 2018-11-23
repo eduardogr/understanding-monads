@@ -1,5 +1,5 @@
 
-module UnderstandingMonads.Examples.While where 
+module UnderstandingMonads.Monad.While where 
 
 import Control.Applicative
 
