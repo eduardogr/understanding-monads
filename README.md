@@ -1,15 +1,13 @@
 # Understanding-Monads
-===================
 
-UnderstandingMonads contains:
+Here you can find:
 - Examples for Functor, Applicative and Monad usage.
 - Some implementations based on Monad
+- Documentation about Monad, Applicative and Functor
 
 
 References
 ==========
-
-Related with this repository we have the following references:
 
 - [Learn You a Haskell for Great Good](http://learnyouahaskell.com/)
 - [All about Monads](https://wiki.haskell.org/All_About_Monads)
