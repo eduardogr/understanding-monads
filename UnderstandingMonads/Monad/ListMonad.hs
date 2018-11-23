@@ -1,10 +1,8 @@
 {-
-
-  Trabajo: Entendiendo Monads
-
-  Autoress: Pablo Andrés Martinez y Eduardo Garcia Ruiz
-
+  Understanding Monads
+  Authors: Pablo Andrés Martinez and Eduardo Garcia Ruiz
 -}
+
 module UnderstandingMonads.Monad.List where 
 
 import Control.Monad

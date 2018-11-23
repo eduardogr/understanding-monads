@@ -1,16 +1,14 @@
 {-
-
-  Trabajo: Entendiendo Monads
-
-  Autoress: Pablo Andrés Martinez y Eduardo Garcia Ruiz
-
+  Understanding Monads
+  Authors: Pablo Andrés Martinez and Eduardo Garcia Ruiz
 -}
+
 module UnderstandingMonads.Examples.While where 
 
 import Control.Applicative
 
 -----------------------------------------
--- Definiciones necesarias para el modulo
+-- Base definitions for the module
 -----------------------------------------
 type  Z      =  Integer
 type  T      =  Bool
@@ -74,26 +72,21 @@ run (C c) = c --Just unwraps the function out of the data type
 -- Gives the state of the MS
 get :: MS s s
 get = C (\xs -> (xs,xs))
-<<<<<<< HEAD
-=======
+
 
 -- Puts a state into the MS
 put :: s -> MS s ()
 put xs = C (\_ -> ((),xs))
 
->>>>>>> 22d447d3db28de310e085d6ea15f68421aef3963
--- Fin de la definicion del State Monad (MS)
+-- End of State Monad definition (MS)
 
 {-
-  Implementación de lenguaje While usando el MS
-  ¡Qué Monada de While !
+  While language implementation based on MS
 -}
+
+
 type While a = MS State a
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 22d447d3db28de310e085d6ea15f68421aef3963
 update :: Var -> Z -> While ()
 update x v = C (\s -> let s' y 
                             | x == y = v 
@@ -115,7 +108,8 @@ bValW (Le a1 a2) = (<=) <$> aValW a1 <*> aValW a2
 bValW (Neg bexp) = (not) <$> bValW bexp
 bValW (And b1 b2) = (&&) <$> bValW b1 <*> bValW b2
 
--- Sentencias del lenguaje While
+-- While language sentences' implementation
+
 assW :: Var -> Aexp -> While ()
 assW x a = aValW a >>= (\n -> update x n)
 
@@ -131,7 +125,7 @@ ifW bexp ws1 ws2 = bValW bexp >>= (\b -> if b then ws1 else ws2)
 whileW :: Bexp -> While () -> While ()
 whileW bexp ws = bValW bexp >>= (\b -> if b then ws >> whileW bexp ws else skipW)
 
--- Ejecutar código del lenguaje while
+-- Run While code
 runProgram :: While () -> State -> State
 runProgram ws s = s'
     where
@@ -139,7 +133,7 @@ runProgram ws s = s'
 
 
 {-
-  TESTING MODULE
+  Example for factorial computation 
 -}
 
 sInit :: State

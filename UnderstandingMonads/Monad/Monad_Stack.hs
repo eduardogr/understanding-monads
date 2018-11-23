@@ -1,15 +1,13 @@
 {-
-
-  Trabajo: Entendiendo Monads
-
-  Autor: Pablo Andrés Martinez
-
+  Understanding Monads
+  Authors: Pablo Andrés Martinez and Eduardo Garcia Ruiz
 -}
+
 module UnderstandingMonads.Examples.Stack where
 
 import Control.Applicative
 
--- Stack Monad como Monad State --
+-- Stack Monad as Monad State --
 data MS s a = C (s -> (a,s))
 type Stack t a = MS [t] a
 
