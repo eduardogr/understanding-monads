@@ -1,7 +1,3 @@
-{-
-  Understanding Monads
-  Authors: Pablo Andrés Martinez and Eduardo Garcia Ruiz
--}
 
 module UnderstandingMonads.Examples.While where 
 
@@ -84,7 +80,6 @@ put xs = C (\_ -> ((),xs))
   While language implementation based on MS
 -}
 
-
 type While a = MS State a
 
 update :: Var -> Z -> While ()
@@ -129,19 +124,19 @@ whileW bexp ws = bValW bexp >>= (\b -> if b then ws >> whileW bexp ws else skipW
 runProgram :: While () -> State -> State
 runProgram ws s = s'
     where
-        (_,s') = run ws s
+        (_, s') = run ws s
 
 
 {-
   Example for factorial computation 
 -}
 
-sInit :: State
-sInit "x" =  5000
-sInit _   =  0
+initState :: State
+initState "x" =  5000
+initState _   =  0
 
 factorial = do assW "y" (N 1)
                whileW (Neg (Eq (V "x") (N 1))) ( do assW "y" (Mult (V "x") (V "y"))
                                                     assW "x" (Sub (V "x") (N 1))
                                                   )
-ejemploRun = runProgram factorial sInit "y"
+factorialExample = runProgram factorial initState "y"

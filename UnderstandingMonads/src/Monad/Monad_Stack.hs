@@ -1,7 +1,3 @@
-{-
-  Understanding Monads
-  Authors: Pablo Andrés Martinez and Eduardo Garcia Ruiz
--}
 
 module UnderstandingMonads.Examples.Stack where
 
@@ -57,7 +53,7 @@ push x = C (\xs -> ((),x:xs))
 stackLength :: Stack t Int
 stackLength = C (\xs -> let l = foldr (\_ c -> c+1) 0 xs in (l, xs))
 
--- Ejemplos de uso de Stack
+-- Stack usage examples
 
 doblePop :: Stack t (Maybe t)
 doblePop = pop >> pop
@@ -74,20 +70,20 @@ pushLength :: Stack Int ()
 pushLength = do l <- stackLength
                 push l
 
--- Ejemplo de interpretación de Notación Polaca
+-- Polish Notation implementation
 
-operar :: Char -> Int -> Int -> Int
-operar '+' n1 n2 = n1+n2
-operar '*' n1 n2 = n1*n2
-operar '-' n1 n2 = n1-n2
+compute :: Char -> Int -> Int -> Int
+compute '+' n1 n2 = n1+n2
+compute '*' n1 n2 = n1*n2
+compute '-' n1 n2 = n1-n2
 
 evalPop :: Either Char Int -> Int -> Stack (Either Char Int) ()
 evalPop (Left op) n = push (Left op) >> push (Right n)
 evalPop (Right n1) n2 = do Just(Left op) <- pop
                            stackLength >>= (\l -> case l of
-                                                    0 -> push (Right (operar op n1 n2))
+                                                    0 -> push (Right (compute op n1 n2))
                                                     otherwise -> do (Just x) <- pop
-                                                                    evalPop x (operar op n1 n2))
+                                                                    evalPop x (compute op n1 n2))
                                                                 
 polaca :: [Either Char Int] -> Stack (Either Char Int) ()
 polaca ((Left op):exp) = push (Left op) >> polaca exp
@@ -97,12 +93,12 @@ polaca ((Right n):exp) = do (Just x) <- pop
 polaca [] = return ()
 
 {-
-  TESTING MODULE
+  examples
 -}
 
-ej1 = run doblePop [1,2,3]
-ej2 = run (push2pop "a") ["z"]
-ej3 = run clearStack [3,1,5,6,4,7,8]
-ej4 = run pushLength [2,3,4,7,9]
-ej5 = run (polaca [Left '*', Left '+', Right 5, Right 3, Left '-', Right 1, Right 4]) []
+ex1 = run doblePop [1,2,3]
+ex2 = run (push2pop "a") ["z"]
+ex3 = run clearStack [3,1,5,6,4,7,8]
+ex4 = run pushLength [2,3,4,7,9]
+ex5 = run (polaca [Left '*', Left '+', Right 5, Right 3, Left '-', Right 1, Right 4]) []
                    

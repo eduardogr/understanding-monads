@@ -1,7 +1,3 @@
-{-
-  Understanding Monads
-  Authors: Pablo Andrés Martinez and Eduardo Garcia Ruiz
--}
 
 module UnderstandingMonads.Functor.Maybe where 
 
@@ -14,4 +10,3 @@ ej3 = fmap (++" World!") (Just "Hello")
 ej4 = fmap (++"neverShown") Nothing
 
 ej5 = fmap (3:) (Just [2,1])
-

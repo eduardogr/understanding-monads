@@ -1,34 +1,24 @@
 # Understanding-Monads
 ===================
 
-UnderstandingMonads contiene ejemplos de uso de Functor, Applicative, Monad y algunas implementaciones de Monad
+UnderstandingMonads contains:
+- Examples for Functor, Applicative and Monad usage.
+- Some implementations based on Monad
 
-Estructura del repositorio
-=======================
-```
-UnderstandingMonads
-├── Functor
-|     └─  MaybeFunctor.hs
-├── Applicative
-|     ├─  MaybeApplicative.hs
-|     └─  ListApplicative.hs
-└── Monad
-      ├─  MaybeMonad.hs
-      ├─  ListMonad.hs
-      ├─  Monad_Stack.hs
-      └─  Monad_While.hs
-```
-Referencias
+
+References
 ==========
-Para realizar este trabajo consultamos referencias como:
+
+Related with this repository we have the following references:
 
 - [Learn You a Haskell for Great Good](http://learnyouahaskell.com/)
 - [All about Monads](https://wiki.haskell.org/All_About_Monads)
 - [Tutorials](https://wiki.haskell.org/Tutorials#Using_monads)
 - [Exercises](http://blog.tmorris.net/posts/20-intermediate-haskell-exercises/)
 
-Licencia
+License
 ========
-Este proyecto esta bajo los términos de la Licencia Pública General GNU publicada por la Fundación para el Software Libre, ya sea la versión 3 de la Licencia, o (a su elección) cualquier última versión.
 
-Puedes encontrar una copia de la licencia [GNU General Public License](http://www.gnu.org/licenses/) en este repositorio.
+This project is under the terms of the GNU General Public License published by the Foundation for Free Software, either version 3 of the License, or (at your option) any latest version.
+
+You can find a copy of the license [GNU General Public License](http://www.gnu.org/licenses/) in this repository.

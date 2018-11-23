@@ -1,7 +1,3 @@
-{-
-  Understanding Monads
-  Authors: Pablo Andrés Martinez and Eduardo Garcia Ruiz
--}
 
 module UnderstandingMonads.Applicative.List where 
 
