@@ -37,17 +37,17 @@ data  Stm   =  Ass Var Aexp
             deriving Show
 
 -- State Monad
-data MS s a = C (s -> (a,s))
+data MS s a = C (s -> (a, s))
 
 instance Monad (MS s) where
   --(>>=) :: MS s a -> (a -> MS s b) -> MS s b
     (>>=) (C c1) fc2 = C (\xs -> let
-                            (r,xs') = c1 xs
+                            (r, xs') = c1 xs
                             (C c2) = fc2 r
                             in c2 xs')
     
     --return :: a -> MS s a
-    return k = C (\xs -> (k,xs))
+    return k = C (\xs -> (k, xs))
     
 instance Applicative (MS s) where
   --pure :: a -> MS s a
@@ -62,17 +62,17 @@ instance Functor (MS s) where
     fmap f ms = (pure f) <*> ms
 
 -- Runs the computation stored in the MS
-run :: MS s a -> (s -> (a,s))
+run :: MS s a -> (s -> (a, s))
 run (C c) = c --Just unwraps the function out of the data type 
 
 -- Gives the state of the MS
 get :: MS s s
-get = C (\xs -> (xs,xs))
+get = C (\xs -> (xs, xs))
 
 
 -- Puts a state into the MS
 put :: s -> MS s ()
-put xs = C (\_ -> ((),xs))
+put xs = C (\_ -> ((), xs))
 
 -- End of State Monad definition (MS)
 
@@ -86,7 +86,7 @@ update :: Var -> Z -> While ()
 update x v = C (\s -> let s' y 
                             | x == y = v 
                             | otherwise = s y 
-                      in ((),s'))
+                      in ((), s'))
 
 aValW :: Aexp -> While Z
 aValW (N n) = C(\s -> (n,s))
@@ -135,8 +135,10 @@ initState :: State
 initState "x" =  5000
 initState _   =  0
 
+factorial :: MS State ()
 factorial = do assW "y" (N 1)
                whileW (Neg (Eq (V "x") (N 1))) ( do assW "y" (Mult (V "x") (V "y"))
                                                     assW "x" (Sub (V "x") (N 1))
                                                   )
+
 factorialExample = runProgram factorial initState "y"
