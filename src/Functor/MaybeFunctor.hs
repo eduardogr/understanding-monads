@@ -1,5 +1,5 @@
 
-module UnderstandingMonads.Functor.Maybe where 
+module UnderstandingMonads.Functor.MaybeFunctor where 
 
 ex1 = fmap (+3) (Just 4)
 -- Expected output: Just 7

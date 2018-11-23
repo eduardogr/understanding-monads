@@ -1,5 +1,5 @@
 
-module UnderstandingMonads.Monad.Maybe where 
+module UnderstandingMonads.Monad.MaybeMonad where 
 
 import Control.Monad
 

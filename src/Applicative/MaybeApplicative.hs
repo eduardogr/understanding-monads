@@ -1,5 +1,5 @@
 
-module UnderstandingMonads.Applicative.Maybe where
+module UnderstandingMonads.Applicative.MaybeApplicative where
 
 import Control.Applicative
 

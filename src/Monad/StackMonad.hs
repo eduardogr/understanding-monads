@@ -1,5 +1,5 @@
 
-module UnderstandingMonads.Examples.Stack where
+module UnderstandingMonads.Monad.StackMonad where
 
 import Control.Applicative
 

@@ -1,5 +1,5 @@
 
-module UnderstandingMonads.Applicative.List where 
+module UnderstandingMonads.Applicative.ListApplicative where 
 
 import Control.Applicative
 
