@@ -1,4 +1,4 @@
-# Understanding-Monads
+<h1 align="center"> understanding-monads </h1> <br>
 
 Here you can find:
 - Examples for Functor, Applicative and Monad usage.
